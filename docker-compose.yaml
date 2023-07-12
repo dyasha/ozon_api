@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: yandex/clickhouse-server
+    restart: always
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./config.xml:/etc/clickhouse-server/config.d/config.xml
+    
+  web: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - CLICKHOUSE_HOST=db

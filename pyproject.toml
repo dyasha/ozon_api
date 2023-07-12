@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ozon-api"
+version = "0.1.0"
+description = ""
+authors = ["Владислав Береснев <vladislaw.beresnev2018@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "ozon_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sqlalchemy = "1.4.24"
+clickhouse-sqlalchemy = "^0.2.4"
+clickhouse-driver = "^0.2.6"
+fastapi = "^0.100.0"
+uvicorn = "^0.22.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
