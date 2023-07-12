@@ -1,9 +1,10 @@
-from fastapi import HTTPException, APIRouter
-import requests
-from ozon_api.db.database import Seller, session
-from datetime import date, timedelta, datetime
-from ozon_api.schema import AuthData
+from datetime import date, datetime, timedelta
 
+import requests
+from fastapi import APIRouter, HTTPException
+
+from ozon_api.db.database import Seller, session
+from ozon_api.schema import AuthData
 
 router = APIRouter()
 

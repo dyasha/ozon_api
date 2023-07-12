@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from ozon_api.endpoint import router as ozon_router
+
 from ozon_api.db.database import Base
+from ozon_api.endpoint import router as ozon_router
 
 app = FastAPI()
 
