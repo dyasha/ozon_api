@@ -6,11 +6,12 @@ services:
     restart: always
     ports:
       - "8123:8123"
+      - "9000:9000"
     volumes:
       - ./config.xml:/etc/clickhouse-server/config.d/config.xml
-    
-  web: 
-    build: 
+
+  web:
+    build:
       context: .
       dockerfile: Dockerfile
     restart: always

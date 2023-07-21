@@ -10,6 +10,7 @@
 - SQLAlchemy
 - Requests
 - uvicorn
+- alembic
 
 ## Установка и запуск
 1. Установите Poetry, если он еще не установлен:
@@ -28,17 +29,20 @@
 4. Скачайте образ ClickHouse
    >docker pull clickhouse/clickhouse-server
 5. Сделайте запуск контейнера
-   >docker run -d --name some-clickhouse-server -p 8123:8123 --ulimit nofile=262144:262144 yandex/clickhouse-server
-6. Запустите приложение
+   >docker run -d --name some-clickhouse-server -p 8123:8123 -p 9000:9000 --ulimit nofile=262144:262144 yandex/clickhouse-server
+6. Выполните миграцию Базы Данных
+   >alembic upgrade head
+7. Запустите приложение
    >uvicorn ozon_api.app:app --reload
 ## Установка и запуск с docker-compose
+ps не доработано, внутри контейнера web нужно выполнить alembic upgrade head
 1. Выполните команду
    >docker compose up
 
 ### Проект будет доступен по адресу http://127.0.0.1:8000/docs
 
 #### __Будущие улучшения__
-- [ ] Создание асинхронной БД
+- [X] Создание асинхронной БД
 
 ## __Автор__
 ###  [Береснев Владислав](https://github.com/dyasha)
